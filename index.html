@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AR</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
+  <!-- A-Frame & AR.js -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+  <!-- custom scripts -->
+  <script type="text/javascript" src="./scripts/soundHandler.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden">
+  <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_9_3;">
+    <!-- 1) assets 등록 -->
+    <a-assets>
+      <!-- 이미지 -->
+      <img id="img02" src="./assets/2.png" />
+      <img id="img04" src="./assets/4.png" />
+      <img id="img05" src="./assets/5.png" />
+      <img id="img06" src="./assets/6.png" />
+      <img id="img17" src="./assets/17.png" />
+
+      <!-- 사운드 (sound01 ~ sound16) -->
+      <audio id="sound01" src="./assets/1.mp3" preload="auto"></audio>
+      <audio id="sound03" src="./assets/3.mp3" preload="auto"></audio>
+      <audio id="sound07" src="./assets/7.mp3" preload="auto"></audio>
+      <audio id="sound08" src="./assets/8.mp3" preload="auto"></audio>
+      <audio id="sound09" src="./assets/9.mp3" preload="auto"></audio>
+      <audio id="sound10" src="./assets/10.mp3" preload="auto"></audio>
+      <audio id="sound11" src="./assets/11.mp3" preload="auto"></audio>
+      <audio id="sound12" src="./assets/12.mp3" preload="auto"></audio>
+      <audio id="sound13" src="./assets/13.mp3" preload="auto"></audio>
+      <audio id="sound14" src="./assets/14.mp3" preload="auto"></audio>
+      <audio id="sound15" src="./assets/15.mp3" preload="auto"></audio>
+      <audio id="sound16" src="./assets/16.mp3" preload="auto"></audio>
+    </a-assets>
+
+    <!-- 2) 마커별 콘텐츠 매핑 -->
+
+    <!-- 1번: 사운드 -->
+    <a-marker type="barcode" value="1">
+      <a-entity sound="src: #sound01; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <!-- 2번: 이미지 -->
+    <a-marker type="barcode" value="2">
+      <a-image src="#img02" position="0 2.5 0" rotation="0 0 0" scale="2 3 3"></a-image>
+    </a-marker>
+
+    <!-- 3번: 사운드 -->
+    <a-marker type="barcode" value="3">
+      <a-entity sound="src: #sound03; autoplay: false; loop: false; volume: 1.8;" soundhandler></a-entity>
+    </a-marker>
+
+    <!-- 4~6번: 이미지 -->
+    <a-marker type="barcode" value="4">
+      <a-image src="#img04" position="0 2.5 0" rotation="0 0 0" scale="2 3 3"></a-image>
+    </a-marker>
+
+    <a-marker type="barcode" value="5">
+      <a-image src="#img05" position="0 2.5 0" rotation="0 0 0" scale="2 3 3"></a-image>
+    </a-marker>
+
+    <a-marker type="barcode" value="6">
+      <a-image src="#img06" position="0 2.5 0" rotation="0 0 0" scale="2 3 3"></a-image>
+    </a-marker>
+
+    <!-- 7~12번: 사운드 -->
+    <a-marker type="barcode" value="7">
+      <a-entity sound="src: #sound07; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <a-marker type="barcode" value="8">
+      <a-entity sound="src: #sound08; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <a-marker type="barcode" value="9">
+      <a-entity sound="src: #sound09; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <a-marker type="barcode" value="10">
+      <a-entity sound="src: #sound10; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <a-marker type="barcode" value="11">
+      <a-entity sound="src: #sound11; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <a-marker type="barcode" value="12">
+      <a-entity sound="src: #sound12; autoplay: false; loop: true; volume: 1;" soundhandler></a-entity>
+    </a-marker>
+
+    <!-- 13번: 이미지 + 사운드 -->
+    <a-marker type="barcode" value="13">
+      <a-image src="#img17" position="0 2.5 0" rotation="0 0 0" scale="2 3 3"></a-image>
+      <a-entity sound="src: #sound13; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <!-- 14~16번: 사운드 -->
+    <a-marker type="barcode" value="14">
+      <a-entity sound="src: #sound14; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <a-marker type="barcode" value="15">
+      <a-entity sound="src: #sound15; autoplay: false; loop: false; volume: 1.8;" soundhandler></a-entity>
+    </a-marker>
+
+    <a-marker type="barcode" value="16">
+      <a-entity sound="src: #sound16; autoplay: false; loop: false;" soundhandler></a-entity>
+    </a-marker>
+
+    <!-- camera -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+
+</html>
